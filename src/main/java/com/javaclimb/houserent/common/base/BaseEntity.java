@@ -1,0 +1,28 @@
+package com.javaclimb.houserent.common.base;
+
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * 所有实体类公共属性
+ */
+@Data
+public class BaseEntity implements Serializable {
+    /**
+     * ID，主键，自动生成
+     */
+    @TableId(type = IdType.AUTO)
+    private Long id;
+
+    /**
+     * 创建时间
+     * mybatis-plus 这里需要采用驼峰命名的方式
+     */
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss",timezone = "GMT+8")
+    private Date createTime;
+}
